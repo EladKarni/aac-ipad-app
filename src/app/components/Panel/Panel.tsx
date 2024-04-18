@@ -1,5 +1,9 @@
 const Panel = () => {
-  return <div className=" w-64 h-64 bg-[#D9D9D9]">Panel</div>;
+  return (
+    <div className="card w-full h-full bg-[#D9D9D9] text-primary-content">
+      <div className="card-body"></div>
+    </div>
+  );
 };
 
 export default Panel;
