@@ -1,3 +1,4 @@
+import BoardIcon from "@/components/BoardIcon/BoardIcon";
 import Panel from "@/components/Panel/Panel";
 
 export default function Home() {
@@ -13,8 +14,8 @@ export default function Home() {
             <Panel />
           </div>
           <div className="row-span-6 flex flex-col gap-10">
-            <div className="flex gap-10 grow">
-              <Panel />
+            <div className="flex gap-10">
+              <BoardIcon />
               <Panel />
               <Panel />
               <Panel />

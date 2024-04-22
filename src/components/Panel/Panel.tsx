@@ -3,7 +3,11 @@
 import { useState } from "react";
 import { clsx } from "clsx";
 
-const Panel = () => {
+type PanelProps = {
+  children?: React.ReactNode;
+};
+
+const Panel = ({ children }: PanelProps) => {
   const [pressed, setpressed] = useState(false);
   return (
     <button
@@ -16,7 +20,9 @@ const Panel = () => {
       onMouseUp={() => setpressed(false)}
       onTouchStart={() => setpressed(true)}
       onTouchEnd={() => setpressed(false)}
-    ></button>
+    >
+      {children}
+    </button>
   );
 };
 
