@@ -2,6 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .card {
+    @apply rounded-lg p-6 bg-[#D9D9D9];
+  }
+
+  .btn-switch {
+    background-color: #C5C5C5;
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: -0.01em;
+    padding: 10px 20px;
+    border-radius: 6px;
+  }
+}
+
+.navigation-btn {
+  background: rgba(194, 211, 255, 0.6);
+  border: 1px solid #000000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+  color: blue;
+  font-weight: 800;
+}
+
+.outer-shadow-subtle {
+  box-shadow: -1px -1px 2px 2px rgba(255, 255, 255, 0.5), 1px 1px 1px 2px rgba(118, 117, 117, 0.5);
+}
+
+.toggle-default-state {
+  box-shadow: -1px -1px 2px 2px rgba(255, 255, 255, 0.5), 1px 1px 1px 2px rgba(118, 117, 117, 0.5);
+}
+
+.toggle-active-state {
+  box-shadow: inset 2px 2px 3px 1px rgba(118, 117, 117, 0.8), inset -1px -1px 3px 1px rgba(255, 255, 255, 0.7);
+}
+
+.card-shadow-off {
+  box-shadow: -4px -4px 5px 3px rgba(255, 255, 255, 0.8), -2px -2px 2px 1px rgba(255, 255, 255, 0.8), 1px 1px 3px 1px rgba(0, 0, 0, 0.3), 3px 3px 4px 3px rgba(0, 0, 0, 0.2);
+}
+
+.card-shadow-on {
+  box-shadow: inset -2px -2px 1px rgba(255, 255, 255, 0.76), inset -2px -2px 5px rgba(255, 255, 255, 0.7), inset 1px 1px 4px rgba(0, 0, 0, 0.41), inset 4px 4px 4px 1px rgba(85, 85, 85, 0.39);
+}
 .drawer-toggle:checked~.drawer-side>.drawer-overlay {
   background: transparent;
 }
@@ -34,6 +81,7 @@
   border-radius: 8px;
 }
 
-.drawer-toggle:checked~.drawer-side>*:not(.drawer-overlay) {
+/* .drawer-toggle:checked~.drawer-side>*:not(.drawer-overlay) {
   box-shadow: 4px 3px 8px 2px rgba(118, 117, 117, 0.74);
 }
+*/

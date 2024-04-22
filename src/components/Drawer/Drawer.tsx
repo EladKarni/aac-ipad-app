@@ -22,7 +22,7 @@ const Drawer = ({ children }: DrawerProps) => {
           aria-label="close sidebar"
           className="drawer-overlay bg-transparent"
         ></label>
-        <div className="menu p-4 w-80 min-h-full bg-[#EFEFEF] text-black shadow-[4px_3px_8px_2px_rgba(118,117,117,0.74)] relative">
+        <div className="p-4 w-[60vw] py-28 px-28 h-screen bg-[#EFEFEF] text-black shadow-[4px_3px_8px_2px_rgba(118,117,117,0.74)] relative">
           <SettingsMenu />
         </div>
       </div>
