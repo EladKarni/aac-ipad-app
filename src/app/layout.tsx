@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import Drawer from "@/components/Drawer/Drawer";
 
 import "./globals.css";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +18,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="light">
+    <html lang="en" data-theme="coloredTheme">
+      <Head>
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="HandheldFriendly" content="true" />
+      </Head>
       <body className={inter.className}>
         <Drawer>{children}</Drawer>
       </body>

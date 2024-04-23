@@ -1,29 +1,35 @@
 import { useState } from "react";
 import Image from "next/image";
 import QuestionIcon from "/public/tooltip-questionmark.png";
+import { TogglesState, useTogglesStore } from "@/stores/togglesStore";
 
 type IconSettingsSectionProps = {
   title: string;
-  checked?: boolean;
+  toggleId: keyof TogglesState;
 };
 
 const ToggleSettingsSection = ({
   title,
-  checked = false,
+  toggleId,
 }: IconSettingsSectionProps) => {
-  const [isToggled, setisToggled] = useState(checked);
+  const data = useTogglesStore();
+  const checkedState = data[toggleId];
   return (
     <>
       <label
         htmlFor="one"
         className="drop-shadow-xl w-full flex flex-row-reverse justify-between items-center my-1"
-        onTouchStart={() => setisToggled(!isToggled)}
+        onTouchStart={() =>
+          useTogglesStore.setState((previousState) => ({
+            [toggleId]: !previousState[toggleId],
+          }))
+        }
       >
         <input
           id="one"
           type="checkbox"
           className="toggle checked:[--tglbg:#FFC635] [--tglbg:#A2A2A2] bg-white hover:bg-white border-gray-300 scale-[2] mr-8"
-          checked={isToggled}
+          checked={checkedState}
           readOnly
         />
         <h5 className="text-3xl flex gap-4 font-semibold">

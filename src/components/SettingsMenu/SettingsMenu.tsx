@@ -4,9 +4,15 @@ import Button from "../Button/Button";
 import IconSettingsSection from "../IconSettingsSection/IconSettingsSection";
 import ToggleSettingsSection from "../ToggleSettingsSection/ToggleSettingsSection";
 import ColorPicker from "../ColorPicker/ColorPicker";
-import Panel from "../Panel/Panel";
+import BoardIcon from "../BoardIcon/BoardIcon";
+import IconGood from "../Icons/IconGood";
+import IconBad from "../Icons/IconBad";
+import { useTogglesStore } from "@/stores/togglesStore";
 
 const MobileNavigation = () => {
+  const { isWhiteOutline, isBoldOutline, isDesaturateColors, isDarkerColors } =
+    useTogglesStore();
+
   return (
     <div className="flex h-full gap-10">
       <div className="flex flex-col justify-between w-96 mt-20 font-semibold">
@@ -52,10 +58,22 @@ const MobileNavigation = () => {
           <Button text="Energy" disabled />
           <Button text="Cartoon" disabled />
         </IconSettingsSection>
-        <ToggleSettingsSection title="Use White Outlines" />
-        <ToggleSettingsSection title="Use Thick Outlines" checked />
-        <ToggleSettingsSection title="Destaturate Colors" />
-        <ToggleSettingsSection title="Use Darker Colors" />
+        <ToggleSettingsSection
+          title="Use White Outlines"
+          toggleId={"isWhiteOutline"}
+        />
+        <ToggleSettingsSection
+          title="Use Thick Outlines"
+          toggleId={"isBoldOutline"}
+        />
+        <ToggleSettingsSection
+          title="Destaturate Colors"
+          toggleId={"isDesaturateColors"}
+        />
+        <ToggleSettingsSection
+          title="Use Darker Colors"
+          toggleId={"isDarkerColors"}
+        />
         <IconSettingsSection title="ICON COLORS">
           <Button text="Colorful" checked />
           <Button text="Limited" disabled />
@@ -66,10 +84,25 @@ const MobileNavigation = () => {
           <h5 className="text-2xl text-gray-600 flex uppercase mb-4">
             ICON PREVIEW
           </h5>
-          <div className="flex h-full gap-14">
-            <Panel />
-            <Panel />
-            <Panel />
+          <div className="flex gap-14">
+            <IconGood
+              bgColor={"bg-blue-desaturated"}
+              strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
+              strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[8px]"}
+              iconColor={"fill-white"}
+            />
+            <IconBad
+              bgColor={"bg-blue-desaturated"}
+              strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
+              strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[8px]"}
+              iconColor={"fill-white"}
+            />
+            <IconGood
+              bgColor={"bg-blue-desaturated"}
+              strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
+              strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[8px]"}
+              iconColor={"fill-white"}
+            />
           </div>
         </div>
       </div>

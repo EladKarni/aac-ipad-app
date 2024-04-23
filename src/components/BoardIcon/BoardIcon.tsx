@@ -1,10 +1,20 @@
+"use client";
 import Panel from "../Panel/Panel";
-import IconGood from "../../../public/icons/Icon-Good.svg";
+import IconGood from "../Icons/IconGood";
+import { useTogglesStore } from "@/stores/togglesStore";
+import IconBad from "../Icons/IconBad";
 
 const BoardIcon = () => {
+  const { isWhiteOutline, isBoldOutline } = useTogglesStore();
+
   return (
-    <Panel className="bg-red-600 text-red-500">
-      <IconGood />
+    <Panel>
+      {/* <IconBad
+        bgColor={"bg-blue-desaturated"}
+        strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
+        strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[8px]"}
+        iconColor={"fill-white"}
+      /> */}
     </Panel>
   );
 };

@@ -15,7 +15,7 @@ export default function Home() {
           </div>
           <div className="row-span-6 flex flex-col gap-10">
             <div className="flex gap-10">
-              <BoardIcon />
+              <Panel />
               <Panel />
               <Panel />
               <Panel />
