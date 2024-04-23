@@ -4,16 +4,10 @@ import { useState } from "react";
 type ButtonProps = {
   disabled?: boolean;
   checked?: boolean;
-  activeText: string;
-  defaultText: string;
+  text: string;
 };
 
-const Button = ({
-  activeText,
-  defaultText,
-  disabled = false,
-  checked = false,
-}: ButtonProps) => {
+const Button = ({ text, disabled = false, checked = false }: ButtonProps) => {
   const [istoggled, setIstoggled] = useState(checked);
   return (
     <button
@@ -24,7 +18,7 @@ const Button = ({
       )}
       disabled={disabled}
     >
-      {istoggled ? activeText : defaultText}
+      {text}
     </button>
   );
 };

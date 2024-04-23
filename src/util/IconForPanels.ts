@@ -6,18 +6,18 @@ import IconSlow from '../../public/icons/Icon-Slow.svg';
 export const IconForPanels = [
     {
         name: "IconGood",
-        image: IconGood,
+        icon: IconGood,
     },
     {
         name: "IconBad",
-        image: IconBad,
+        icon: IconBad,
     },
     {
         name: "IconFast",
-        image: IconFast,
+        icon: IconFast,
     },
     {
         name: "IconSlow",
-        image: IconSlow,
+        icon: IconSlow,
     }
 ];

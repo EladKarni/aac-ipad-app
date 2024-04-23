@@ -4,17 +4,19 @@ import { useState } from "react";
 import { clsx } from "clsx";
 
 type PanelProps = {
+  className?: string;
   children?: React.ReactNode;
 };
 
-const Panel = ({ children }: PanelProps) => {
+const Panel = ({ children, className }: PanelProps) => {
   const [pressed, setpressed] = useState(false);
   return (
     <button
       type="button"
       className={clsx(
-        "card w-full h-full text-primary-content",
-        !pressed ? "card-shadow-off" : "card-shadow-on"
+        "rounded-lg w-full h-full bg-gray-100",
+        !pressed ? "card-shadow-off" : "card-shadow-on",
+        className
       )}
       onMouseDown={() => setpressed(true)}
       onMouseUp={() => setpressed(false)}

@@ -24,6 +24,7 @@ const ToggleSettingsSection = ({
           type="checkbox"
           className="toggle checked:[--tglbg:#FFC635] [--tglbg:#A2A2A2] bg-white hover:bg-white border-gray-300 scale-[2] mr-8"
           checked={isToggled}
+          readOnly
         />
         <h5 className="text-3xl flex gap-4 font-semibold">
           {title}

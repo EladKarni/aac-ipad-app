@@ -48,18 +48,18 @@ const MobileNavigation = () => {
       <div className="flex flex-col gap-3">
         <h2 className="text-6xl font-serif">Icon Settings:</h2>
         <IconSettingsSection title="ICON SIZE">
-          <Button activeText="Modern" defaultText="Modern" checked />
-          <Button activeText="Energy" defaultText="Energy" disabled />
-          <Button activeText="Cartoon" defaultText="Cartoon" disabled />
+          <Button text="Modern" checked />
+          <Button text="Energy" disabled />
+          <Button text="Cartoon" disabled />
         </IconSettingsSection>
         <ToggleSettingsSection title="Use White Outlines" />
         <ToggleSettingsSection title="Use Thick Outlines" checked />
         <ToggleSettingsSection title="Destaturate Colors" />
         <ToggleSettingsSection title="Use Darker Colors" />
         <IconSettingsSection title="ICON COLORS">
-          <Button activeText="Colorful" defaultText="Modern" checked />
-          <Button activeText="Limited" defaultText="Energy" disabled />
-          <Button activeText="1 Color" defaultText="Cartoon" disabled />
+          <Button text="Colorful" checked />
+          <Button text="Limited" disabled />
+          <Button text="1 Color" disabled />
         </IconSettingsSection>
         <ColorPicker />
         <div className="h-48">
