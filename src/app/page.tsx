@@ -11,6 +11,7 @@ import IconSlow from "@/components/Icons/IconSlow";
 import IconCome from "@/components/Icons/IconCome";
 import IconGo from "@/components/Icons/IconGo";
 import IconThis from "@/components/Icons/IconThis";
+import IconThat from "@/components/Icons/IconThat";
 
 export default function Home() {
   const { isWhiteOutline, isBoldOutline, isDesaturateColors, isDarkerColors } =
@@ -73,12 +74,17 @@ export default function Home() {
               <IconThis
                 word="This"
                 strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
-                strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[8px]"}
+                strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[7px]"}
                 iconColor={currentColor}
               />
-              <Panel word={""} />
-              <Panel word={""} />
-              <Panel word={""} />
+              <IconThat
+                word="That"
+                strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
+                strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[7px]"}
+                iconColor={currentColor}
+              />
+              <Panel word={""} className="bg-[#C7C7C7]" />
+              <Panel word={""} className="bg-[#C7C7C7]" />
             </div>
             <div className="flex gap-10">
               <IconCome
@@ -108,40 +114,46 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <aside className="grid grid-cols-2 grid-rows-7 gap-10">
+        <aside className="grid grid-cols-2 grid-rows-7 gap-10 ">
           <div className="col-span-2 flex gap-10">
-            <Panel word={""} />
-            <Panel word={""} />
+            <Panel word={""} className="bg-[#C7C7C7]" />
+            <Panel word={""} className="bg-[#C7C7C7]" />
           </div>
           <div className="col-span-2">
-            <Panel word={""} />
+            <Panel word={""} className="bg-[#C7C7C7]" />
           </div>
           <div className="col-span-2 row-span-3 flex flex-col gap-16 h-full pt-8">
             <div className="flex gap-10 grow">
-              <Panel word={"Delete"} className="text-3xl text-black">
+              <Panel
+                word={"Delete"}
+                className="text-3xl bg-[#C7C7C7] font-semibold text-black"
+              >
                 Delete
               </Panel>
-              <Panel word={"Clear"} className="text-3xl text-black">
+              <Panel
+                word={"Clear"}
+                className="text-3xl bg-[#C7C7C7] font-semibold text-black"
+              >
                 Clear
               </Panel>
             </div>
             <div className="flex gap-10 grow">
-              <Panel word={""} />
-              <Panel word={""} />
+              <Panel word={""} className="bg-[#C7C7C7]" />
+              <Panel word={""} className="bg-[#C7C7C7]" />
             </div>
             <div className="flex gap-10 grow">
-              <Panel word={""} />
-              <Panel word={""} />
+              <Panel word={""} className="bg-[#C7C7C7]" />
+              <Panel word={""} className="bg-[#C7C7C7]" />
             </div>
           </div>
           <div className="col-span-2 flex flex-col gap-10">
-            <Panel word={""} />
-            <Panel word={""} />
+            <Panel word={""} className="bg-[#C7C7C7]" />
+            <Panel word={""} className="bg-[#C7C7C7]" />
           </div>
           <div className="flex  col-span-2 justify-end items-end">
             <div className="flex gap-10 h-1/2 w-full">
-              <Panel word={""} />
-              <Panel word={""} />
+              <Panel word={""} className="bg-[#C7C7C7]" />
+              <Panel word={""} className="bg-[#C7C7C7]" />
             </div>
           </div>
         </aside>

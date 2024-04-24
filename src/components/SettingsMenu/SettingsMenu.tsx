@@ -5,11 +5,10 @@ import IconSettingsSection from "../IconSettingsSection/IconSettingsSection";
 import ToggleSettingsSection from "../ToggleSettingsSection/ToggleSettingsSection";
 import ColorPicker from "../ColorPicker/ColorPicker";
 import IconGood from "../Icons/IconGood";
-import IconBad from "../Icons/IconBad";
 import { useTogglesStore } from "@/stores/togglesStore";
 import { useColorStore } from "@/stores/colorStore";
 import IconThis from "../Icons/IconThis";
-import { iconColorStyles } from "@/util/getCurrentColor";
+import IconCome from "../Icons/IconCome";
 
 const MobileNavigation = () => {
   const { isWhiteOutline, isBoldOutline } = useTogglesStore();
@@ -92,7 +91,7 @@ const MobileNavigation = () => {
               strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[6px]"}
               iconColor={currentColor}
             />
-            <IconBad
+            <IconCome
               word=""
               strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
               strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[6px]"}

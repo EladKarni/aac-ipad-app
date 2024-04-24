@@ -8,7 +8,7 @@ export interface wordState {
 }
 
 export const useWordStore = create<wordState>()((set) => ({
-    words: ["Like", "This", "Bad"],
+    words: [],
     addWordToEnd: (word: string) => set((state) => ({ words: [...state.words, word] })),
     removeWordFromEnd: (words: string[]) => set(() => ({ words: words.slice(0, -1) })),
     clearWords: () => set({ words: [] }),
