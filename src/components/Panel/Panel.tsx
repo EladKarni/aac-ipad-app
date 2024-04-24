@@ -1,15 +1,35 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { clsx } from "clsx";
+import { useWordStore } from "@/stores/wordStore";
 
 type PanelProps = {
+  word: string;
   className?: string;
   children?: React.ReactNode;
 };
 
-const Panel = ({ children, className }: PanelProps) => {
+const Panel = ({ children, className, word }: PanelProps) => {
   const [pressed, setpressed] = useState(false);
+  const { words, addWordToEnd, clearWords, removeWordFromEnd } = useWordStore();
+
+  const setPressedValue = (value: boolean) => {
+    if (word === "" || word === undefined) return;
+    if (word === "Clear") {
+      clearWords();
+      return;
+    }
+    if (!pressed && value) {
+      if (word === "Delete") {
+        removeWordFromEnd(words);
+        return;
+      }
+      addWordToEnd(`"${word}"`);
+    }
+    setpressed(value);
+  };
+
   return (
     <button
       type="button"
@@ -18,10 +38,8 @@ const Panel = ({ children, className }: PanelProps) => {
         !pressed ? "card-shadow-off" : "card-shadow-on",
         className
       )}
-      onMouseDown={() => setpressed(true)}
-      onMouseUp={() => setpressed(false)}
-      onTouchStart={() => setpressed(true)}
-      onTouchEnd={() => setpressed(false)}
+      onMouseDown={() => setPressedValue(true)}
+      onMouseUp={() => setPressedValue(false)}
     >
       {children}
     </button>

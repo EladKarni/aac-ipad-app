@@ -1,6 +1,5 @@
-import ColorSwatch1 from "../../public/colors/Rectangle 243.png";
-import ColorSwatch2 from "../../public/colors/Rectangle 244.png";
-import ColorSwatch3 from "../../public/colors/Rectangle 245.png";
+import { colorOptions } from "@/stores/colorStore";
+import { StaticImageData } from "next/image";
 import ColorSwatch4 from "../../public/colors/Rectangle 246.png";
 import ColorSwatch5 from "../../public/colors/Rectangle 247.png";
 import ColorSwatch6 from "../../public/colors/Rectangle 248.png";
@@ -17,77 +16,70 @@ import ColorSwatch16 from "../../public/colors/Rectangle 258.png";
 import ColorSwatch17 from "../../public/colors/Rectangle 259.png";
 import ColorSwatch18 from "../../public/colors/Rectangle 260.png";
 
-export const ColorSwatches = [
+type ColorSwatchObject = {
+  name: colorOptions;
+  image: StaticImageData;
+};
+
+export const ColorSwatches: ColorSwatchObject[] = [
   {
-    name: "ColorSwatch1",
-    image: ColorSwatch1,
-  },
-  {
-    name: "ColorSwatch2",
-    image: ColorSwatch2,
-  },
-  {
-    name: "ColorSwatch3",
-    image: ColorSwatch3,
-  },
-  {
-    name: "ColorSwatch4",
+    name: "white",
     image: ColorSwatch4,
   },
   {
-    name: "ColorSwatch5",
+    name: "gray",
     image: ColorSwatch5,
   },
   {
-    name: "ColorSwatch6",
+    name: "black",
     image: ColorSwatch6,
   },
   {
-    name: "ColorSwatch7",
+    name: "red",
     image: ColorSwatch7,
   },
   {
-    name: "ColorSwatch8",
+    name: "orange",
     image: ColorSwatch8,
   },
   {
-    name: "ColorSwatch9",
+    name: "yellow",
     image: ColorSwatch9,
   },
   {
-    name: "ColorSwatch10",
+    name: "green",
     image: ColorSwatch10,
   },
   {
-    name: "ColorSwatch11",
+    name: "blue",
     image: ColorSwatch11,
   },
   {
-    name: "ColorSwatch12",
+    name: "purple",
     image: ColorSwatch12,
   },
   {
-    name: "ColorSwatch13",
+    name: "skintone1",
     image: ColorSwatch13,
   },
   {
-    name: "ColorSwatch14",
+    name: "skintone2",
     image: ColorSwatch14,
   },
   {
-    name: "ColorSwatch15",
+    name: "skintone3",
     image: ColorSwatch15,
   },
   {
-    name: "ColorSwatch16",
+    name: "skintone4",
     image: ColorSwatch16,
   },
   {
-    name: "ColorSwatch17",
+    name: "skintone5",
     image: ColorSwatch17,
   },
   {
-    name: "ColorSwatch18",
+    name: "skintone6",
     image: ColorSwatch18,
   },
 ];

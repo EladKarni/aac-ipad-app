@@ -4,14 +4,15 @@ import Button from "../Button/Button";
 import IconSettingsSection from "../IconSettingsSection/IconSettingsSection";
 import ToggleSettingsSection from "../ToggleSettingsSection/ToggleSettingsSection";
 import ColorPicker from "../ColorPicker/ColorPicker";
-import BoardIcon from "../BoardIcon/BoardIcon";
 import IconGood from "../Icons/IconGood";
 import IconBad from "../Icons/IconBad";
 import { useTogglesStore } from "@/stores/togglesStore";
+import { useColorStore } from "@/stores/colorStore";
+import IconThis from "../Icons/IconThis";
 
 const MobileNavigation = () => {
-  const { isWhiteOutline, isBoldOutline, isDesaturateColors, isDarkerColors } =
-    useTogglesStore();
+  const { isWhiteOutline, isBoldOutline } = useTogglesStore();
+  const { currentColor } = useColorStore();
 
   return (
     <div className="flex h-full gap-10">
@@ -86,22 +87,19 @@ const MobileNavigation = () => {
           </h5>
           <div className="flex gap-14">
             <IconGood
-              bgColor={"bg-blue-desaturated"}
               strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
-              strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[8px]"}
-              iconColor={"fill-white"}
+              strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[6px]"}
+              iconColor={currentColor}
             />
             <IconBad
-              bgColor={"bg-blue-desaturated"}
               strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
-              strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[8px]"}
-              iconColor={"fill-white"}
+              strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[6px]"}
+              iconColor={currentColor}
             />
-            <IconGood
-              bgColor={"bg-blue-desaturated"}
+            <IconThis
               strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
-              strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[8px]"}
-              iconColor={"fill-white"}
+              strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[6px]"}
+              iconColor={currentColor}
             />
           </div>
         </div>

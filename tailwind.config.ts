@@ -25,7 +25,7 @@ const config: Config = {
         darkdesaturated: '#7C4E2E',
       },
       'yellow': {
-        dark: '#7F731B',
+        dark: '#FFFF00',
         DEFAULT: '#FFEB35',
         desaturated: '#E5D36C',
         darkdesaturated: '#7C723A',
