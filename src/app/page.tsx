@@ -32,21 +32,25 @@ export default function Home() {
           <div className="row-span-6 flex flex-col gap-10">
             <div className="flex gap-10">
               <IconGood
+                word="Like"
                 strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
                 strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[8px]"}
                 iconColor={currentColor}
               />
               <IconBad
+                word="Bad"
                 strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
                 strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[8px]"}
                 iconColor={currentColor}
               />
               <IconThis
+                word="This"
                 strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
                 strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[8px]"}
                 iconColor={currentColor}
               />
               <IconGood
+                word="Like"
                 strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
                 strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[8px]"}
                 iconColor={currentColor}

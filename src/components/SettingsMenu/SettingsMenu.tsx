@@ -87,16 +87,19 @@ const MobileNavigation = () => {
           </h5>
           <div className="flex gap-14">
             <IconGood
+              word=""
               strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
               strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[6px]"}
               iconColor={currentColor}
             />
             <IconBad
+              word=""
               strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
               strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[6px]"}
               iconColor={currentColor}
             />
             <IconThis
+              word=""
               strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
               strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[6px]"}
               iconColor={currentColor}

@@ -5,15 +5,21 @@ import { useTogglesStore } from "@/stores/togglesStore";
 import { iconColorStyles } from "@/util/getCurrentColor";
 
 type IconGoodProps = {
+  word: string;
   strokeColor: string;
   strokeWidth: string;
   iconColor: colorOptions;
 };
 
-const IconThis = ({ strokeWidth, strokeColor, iconColor }: IconGoodProps) => {
+const IconThis = ({
+  strokeWidth,
+  strokeColor,
+  iconColor,
+  word,
+}: IconGoodProps) => {
   const { isDesaturateColors, isDarkerColors } = useTogglesStore();
   return (
-    <Panel word="This">
+    <Panel word={word}>
       <svg
         id="Layer_1"
         data-name="Layer 1"

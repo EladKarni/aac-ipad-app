@@ -5,16 +5,17 @@ import { clsx } from "clsx";
 import { useWordStore } from "@/stores/wordStore";
 
 type PanelProps = {
-  word: string;
+  word?: string;
   className?: string;
   children?: React.ReactNode;
 };
 
 const Panel = ({ children, className, word }: PanelProps) => {
-  const [pressed, setpressed] = useState(false);
+  const [pressed, setPressed] = useState(false);
   const { words, addWordToEnd, clearWords, removeWordFromEnd } = useWordStore();
 
   const setPressedValue = (value: boolean) => {
+    setPressed(value);
     if (word === "" || word === undefined) return;
     if (word === "Clear") {
       clearWords();
@@ -27,7 +28,6 @@ const Panel = ({ children, className, word }: PanelProps) => {
       }
       addWordToEnd(`"${word}"`);
     }
-    setpressed(value);
   };
 
   return (
@@ -38,8 +38,8 @@ const Panel = ({ children, className, word }: PanelProps) => {
         !pressed ? "card-shadow-off" : "card-shadow-on",
         className
       )}
-      onMouseDown={() => setPressedValue(true)}
-      onMouseUp={() => setPressedValue(false)}
+      onTouchStart={() => setPressedValue(true)}
+      onTouchEnd={() => setPressedValue(false)}
     >
       {children}
     </button>
