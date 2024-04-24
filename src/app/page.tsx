@@ -6,12 +6,18 @@ import Panel from "@/components/Panel/Panel";
 import { useColorStore } from "@/stores/colorStore";
 import { useTogglesStore } from "@/stores/togglesStore";
 import { useWordStore } from "@/stores/wordStore";
-import { iconColorStyles } from "@/util/getCurrentColor";
 import IconSlow from "@/components/Icons/IconSlow";
 import IconCome from "@/components/Icons/IconCome";
 import IconGo from "@/components/Icons/IconGo";
 import IconThis from "@/components/Icons/IconThis";
 import IconThat from "@/components/Icons/IconThat";
+import IconSpeak from "../../public/icons/IconSpeak.png";
+import Image from "next/image";
+import IconNeither from "@/components/Icons/IconNeither";
+import IconAbove from "@/components/Icons/IconAbove";
+import IconBelow from "@/components/Icons/IconBelow";
+import IconUnder from "@/components/Icons/IconBelow";
+import IconThink from "@/components/Icons/IconThink";
 
 export default function Home() {
   const { isWhiteOutline, isBoldOutline, isDesaturateColors, isDarkerColors } =
@@ -76,8 +82,18 @@ export default function Home() {
                 strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[7px]"}
                 iconColor={currentColor}
               />
-              <Panel word={""} className="bg-[#C7C7C7]" />
-              <Panel word={""} className="bg-[#C7C7C7]" />
+              <IconNeither
+                word="Neither"
+                strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
+                strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[7px]"}
+                iconColor={currentColor}
+              />
+              <IconAbove
+                word="Above"
+                strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
+                strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[7px]"}
+                iconColor={currentColor}
+              />
             </div>
             <div className="flex gap-10">
               <IconCome
@@ -92,14 +108,14 @@ export default function Home() {
                 strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[7px]"}
                 iconColor={currentColor}
               />
-              <IconCome
-                word="Go"
+              <IconThink
+                word="Think"
                 strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
                 strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[8px]"}
                 iconColor={currentColor}
               />
-              <IconCome
-                word="Go"
+              <IconUnder
+                word="Under"
                 strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
                 strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[8px]"}
                 iconColor={currentColor}
@@ -112,8 +128,9 @@ export default function Home() {
             <Panel word={""} className="bg-[#C7C7C7]" />
             <Panel
               word={"Speak"}
-              className="text-3xl bg-[#C7C7C7] font-semibold text-black"
+              className="text-3xl bg-[#C7C7C7] font-semibold text-black flex flex-col items-center justify-around"
             >
+              <Image src={IconSpeak} alt="Speak" className="scale-150 mt-4" />
               Speak
             </Panel>
           </div>
