@@ -1,12 +1,16 @@
 "use client";
 import IconBad from "@/components/Icons/IconBad";
+import IconFast from "@/components/Icons/IconFast";
 import IconGood from "@/components/Icons/IconGood";
-import IconThis from "@/components/Icons/IconThis";
 import Panel from "@/components/Panel/Panel";
 import { useColorStore } from "@/stores/colorStore";
 import { useTogglesStore } from "@/stores/togglesStore";
 import { useWordStore } from "@/stores/wordStore";
 import { iconColorStyles } from "@/util/getCurrentColor";
+import IconSlow from "@/components/Icons/IconSlow";
+import IconCome from "@/components/Icons/IconCome";
+import IconGo from "@/components/Icons/IconGo";
+import IconThis from "@/components/Icons/IconThis";
 
 export default function Home() {
   const { isWhiteOutline, isBoldOutline, isDesaturateColors, isDarkerColors } =
@@ -38,7 +42,7 @@ export default function Home() {
               );
             })}
           </div>
-          <div className="row-span-6 flex flex-col gap-10">
+          <div className="row-span-6 flex flex-col justify-center gap-y-10 h-full">
             <div className="flex gap-10">
               <IconGood
                 word="Like"
@@ -52,30 +56,55 @@ export default function Home() {
                 strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[8px]"}
                 iconColor={currentColor}
               />
+              <IconFast
+                word="Fast"
+                strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
+                strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[8px]"}
+                iconColor={currentColor}
+              />
+              <IconSlow
+                word="Slow"
+                strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
+                strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[8px]"}
+                iconColor={currentColor}
+              />
+            </div>
+            <div className="flex gap-10">
               <IconThis
                 word="This"
                 strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
                 strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[8px]"}
                 iconColor={currentColor}
               />
-              <IconGood
-                word="Like"
+              <Panel word={""} />
+              <Panel word={""} />
+              <Panel word={""} />
+            </div>
+            <div className="flex gap-10">
+              <IconCome
+                word="Come"
+                strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
+                strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[7px]"}
+                iconColor={currentColor}
+              />
+              <IconGo
+                word="Go"
+                strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
+                strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[7px]"}
+                iconColor={currentColor}
+              />
+              <IconCome
+                word="Go"
                 strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
                 strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[8px]"}
                 iconColor={currentColor}
               />
-            </div>
-            <div className="flex gap-10 grow">
-              <Panel word={""} />
-              <Panel word={""} />
-              <Panel word={""} />
-              <Panel word={""} />
-            </div>
-            <div className="flex gap-10 grow">
-              <Panel word={""} />
-              <Panel word={""} />
-              <Panel word={""} />
-              <Panel word={""} />
+              <IconCome
+                word="Go"
+                strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
+                strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[8px]"}
+                iconColor={currentColor}
+              />
             </div>
           </div>
         </section>

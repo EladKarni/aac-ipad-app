@@ -26,7 +26,7 @@ const Panel = ({ children, className, word }: PanelProps) => {
         removeWordFromEnd(words);
         return;
       }
-      addWordToEnd(`"${word}"`);
+      addWordToEnd(`${word}`);
     }
   };
 
