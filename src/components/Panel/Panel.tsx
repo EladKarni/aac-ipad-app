@@ -13,26 +13,30 @@ type PanelProps = {
 const Panel = ({ children, className, word }: PanelProps) => {
   const [pressed, setPressed] = useState(false);
   const { words, addWordToEnd, clearWords, removeWordFromEnd } = useWordStore();
-  const utterance = new SpeechSynthesisUtterance();
+  // @ts-ignore
 
   const setPressedValue = (value: boolean) => {
-    setPressed(value);
-    if (word === "" || word === undefined) return;
-    if (word === "Speak") {
-      utterance.text = words.join(" ");
-      speechSynthesis.speak(utterance);
-      return;
-    }
-    if (word === "Clear") {
-      clearWords();
-      return;
-    }
-    if (!pressed && value) {
-      if (word === "Delete") {
-        removeWordFromEnd(words);
+    if (typeof window !== "undefined") {
+      let utterance = new window.SpeechSynthesisUtterance();
+
+      setPressed(value);
+      if (word === "" || word === undefined) return;
+      if (word === "Speak") {
+        utterance.text = words.join(" ");
+        speechSynthesis.speak(utterance);
         return;
       }
-      addWordToEnd(`${word}`);
+      if (word === "Clear") {
+        clearWords();
+        return;
+      }
+      if (!pressed && value) {
+        if (word === "Delete") {
+          removeWordFromEnd(words);
+          return;
+        }
+        addWordToEnd(`${word}`);
+      }
     }
   };
 
