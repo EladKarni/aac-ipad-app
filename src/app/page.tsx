@@ -18,20 +18,13 @@ export default function Home() {
     useTogglesStore();
   const { currentColor } = useColorStore();
   const { words } = useWordStore();
-
-  const currentModifiedColor = iconColorStyles(
-    currentColor,
-    isDesaturateColors,
-    isDarkerColors
-  );
-  console.log(currentModifiedColor);
   return (
     <>
       <label
         htmlFor="my-drawer"
         className="absolute top-[45%] left-0 bg-[#EFEFEF] h-[10%] w-20 z-100"
       />
-      <main className="grid grid-cols-5 h-screen p-10 ml-16 bg-white gap-14">
+      <main className="grid grid-cols-5 h-screen p-10 ml-12 bg-white gap-14">
         <section className="h-full grid grid-rows-7 gap-10 col-span-4">
           <div className="flex gap-4 items-center w-full rounded-lg h-full bg-[#E2E2E2] card-shadow-off px-8">
             {words.map((word) => {
@@ -117,7 +110,12 @@ export default function Home() {
         <aside className="grid grid-cols-2 grid-rows-7 gap-10 ">
           <div className="col-span-2 flex gap-10">
             <Panel word={""} className="bg-[#C7C7C7]" />
-            <Panel word={""} className="bg-[#C7C7C7]" />
+            <Panel
+              word={"Speak"}
+              className="text-3xl bg-[#C7C7C7] font-semibold text-black"
+            >
+              Speak
+            </Panel>
           </div>
           <div className="col-span-2">
             <Panel word={""} className="bg-[#C7C7C7]" />
