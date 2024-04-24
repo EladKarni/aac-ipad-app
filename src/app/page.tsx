@@ -6,11 +6,20 @@ import Panel from "@/components/Panel/Panel";
 import { useColorStore } from "@/stores/colorStore";
 import { useTogglesStore } from "@/stores/togglesStore";
 import { useWordStore } from "@/stores/wordStore";
+import { iconColorStyles } from "@/util/getCurrentColor";
 
 export default function Home() {
-  const { isWhiteOutline, isBoldOutline } = useTogglesStore();
+  const { isWhiteOutline, isBoldOutline, isDesaturateColors, isDarkerColors } =
+    useTogglesStore();
   const { currentColor } = useColorStore();
   const { words } = useWordStore();
+
+  const currentModifiedColor = iconColorStyles(
+    currentColor,
+    isDesaturateColors,
+    isDarkerColors
+  );
+  console.log(currentModifiedColor);
   return (
     <>
       <label

@@ -9,11 +9,11 @@ import IconBad from "../Icons/IconBad";
 import { useTogglesStore } from "@/stores/togglesStore";
 import { useColorStore } from "@/stores/colorStore";
 import IconThis from "../Icons/IconThis";
+import { iconColorStyles } from "@/util/getCurrentColor";
 
 const MobileNavigation = () => {
   const { isWhiteOutline, isBoldOutline } = useTogglesStore();
   const { currentColor } = useColorStore();
-
   return (
     <div className="flex h-full gap-10">
       <div className="flex flex-col justify-between w-96 mt-20 font-semibold">
