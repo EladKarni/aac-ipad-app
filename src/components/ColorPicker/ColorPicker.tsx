@@ -18,7 +18,6 @@ const ColorPicker = () => {
                 useColorStore.setState({
                   currentColor: color.name === "none" ? "white" : color.name,
                 });
-                console.log(color.name, currentColor);
               }}
             >
               <Image

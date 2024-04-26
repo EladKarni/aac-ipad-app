@@ -27,12 +27,14 @@ const Panel = ({ children, className, word, input }: PanelProps) => {
     setUtterance(new SpeechSynthesisUtterance(words.join(" ")));
   }, [words]);
 
-  const setPressedValue = () => {
+  const setPressedValue = async () => {
     if (word === "" || word === undefined) return;
     if (word === "Generate") {
       console.log("Generating");
       if (input === undefined) return;
-      generateSentence(input);
+      useWordStore.setState({
+        sentenceOptions: await generateSentence(input),
+      });
       return;
     }
     if (word === "Speak") {
@@ -43,6 +45,9 @@ const Panel = ({ children, className, word, input }: PanelProps) => {
     }
     if (word === "Clear") {
       clearWords();
+      useWordStore.setState({
+        sentenceOptions: [],
+      });
       return;
     }
     if (word === "Delete") {

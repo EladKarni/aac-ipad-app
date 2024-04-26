@@ -1,11 +1,11 @@
 "use client";
+import { useColorStore } from "@/stores/colorStore";
+import { useTogglesStore } from "@/stores/togglesStore";
+import { useWordStore } from "@/stores/wordStore";
 import IconBad from "@/components/Icons/IconBad";
 import IconFast from "@/components/Icons/IconFast";
 import IconGood from "@/components/Icons/IconGood";
 import Panel from "@/components/Panel/Panel";
-import { useColorStore } from "@/stores/colorStore";
-import { useTogglesStore } from "@/stores/togglesStore";
-import { useWordStore } from "@/stores/wordStore";
 import IconSlow from "@/components/Icons/IconSlow";
 import IconCome from "@/components/Icons/IconCome";
 import IconGo from "@/components/Icons/IconGo";
@@ -16,15 +16,27 @@ import IconGen from "../../public/icons/IconGen.png";
 import Image from "next/image";
 import IconNeither from "@/components/Icons/IconNeither";
 import IconAbove from "@/components/Icons/IconAbove";
-import IconBelow from "@/components/Icons/IconBelow";
 import IconUnder from "@/components/Icons/IconBelow";
 import IconThink from "@/components/Icons/IconThink";
+import TooltipTriangle from "../../public/tooltip-triangle.png";
+import { useEffect, useState } from "react";
 
 export default function Home() {
-  const { isWhiteOutline, isBoldOutline, isDesaturateColors, isDarkerColors } =
-    useTogglesStore();
+  const { isWhiteOutline, isBoldOutline } = useTogglesStore();
   const { currentColor } = useColorStore();
-  const { words } = useWordStore();
+  const { words, sentenceOptions, selectedSentence } = useWordStore();
+
+  const [synth, setSynth] = useState<SpeechSynthesis | null>(null);
+  const [utterance, setUtterance] = useState<SpeechSynthesisUtterance | null>(
+    null
+  );
+
+  useEffect(() => {
+    if (!window.speechSynthesis) return;
+    setSynth(window.speechSynthesis);
+    setUtterance(new SpeechSynthesisUtterance(selectedSentence));
+  }, [selectedSentence]);
+
   return (
     <>
       <label
@@ -33,7 +45,7 @@ export default function Home() {
       />
       <main className="grid grid-cols-5 h-screen p-10 ml-12 bg-white gap-14">
         <section className="h-full grid grid-rows-7 gap-10 col-span-4">
-          <div className="flex gap-4 items-center w-full rounded-lg h-full bg-[#E2E2E2] card-shadow-off px-8">
+          <div className="flex gap-4 items-center w-full rounded-lg h-full bg-[#E2E2E2] card-shadow-off px-8 relative">
             {words.map((word) => {
               return (
                 <div
@@ -42,7 +54,33 @@ export default function Home() {
                 >{`"${word}"`}</div>
               );
             })}
+            {sentenceOptions.length !== 0 && (
+              <div className="w-full h-[1236px] bg-[#A2A2A2] absolute -ml-8 -mb-[1500px] rounded-lg flex flex-col gap-2 py-2">
+                <Image
+                  src={TooltipTriangle}
+                  alt={"triangle tooltip"}
+                  className="-mt-4 mx-auto"
+                ></Image>
+                {sentenceOptions.map((words: string) => {
+                  return (
+                    <div
+                      onClick={() => {
+                        if (synth === null) return;
+                        if (utterance === null) return;
+                        useWordStore.setState({
+                          selectedSentence: words,
+                        });
+                        synth.speak(utterance);
+                      }}
+                      key={words + Math.random()}
+                      className="text-5xl text-black w-full bg-[#797979] grow items-center flex px-4"
+                    >{`"${words}"`}</div>
+                  );
+                })}
+              </div>
+            )}
           </div>
+
           <div className="row-span-6 flex flex-col justify-center gap-y-10 h-full">
             <div className="flex gap-10">
               <IconGood
@@ -152,24 +190,16 @@ export default function Home() {
             <div className="flex gap-10 grow">
               <Panel
                 word={"Delete"}
-                className="text-3xl bg-[#C7C7C7] font-semibold text-black"
+                className="text-3xl bg-[#C7C7C7] font-semibold text-black flex items-end justify-center h-36 p-3 "
               >
                 Delete
               </Panel>
               <Panel
                 word={"Clear"}
-                className="text-3xl bg-[#C7C7C7] font-semibold text-black"
+                className="text-3xl bg-[#C7C7C7] font-semibold text-black flex items-end justify-center h-36 p-3"
               >
                 Clear
               </Panel>
-            </div>
-            <div className="flex gap-6 grow -mb-10">
-              <Panel word={""} className="bg-[#C7C7C7]" />
-              <Panel word={""} className="bg-[#C7C7C7]" />
-            </div>
-            <div className="flex gap-6 grow">
-              <Panel word={""} className="bg-[#C7C7C7]" />
-              <Panel word={""} className="bg-[#C7C7C7]" />
             </div>
           </div>
           <div className="col-span-2 flex flex-col gap-10">

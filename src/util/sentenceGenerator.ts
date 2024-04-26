@@ -5,6 +5,7 @@ const OpenAIClient = new OpenAIApi({ apiKey: process.env.NEXT_PUBLIC_OPENAI_API_
 export const generateSentence = async (words: string[]) => {
     const completion = await OpenAIClient.chat.completions.create({
         model: "gpt-3.5-turbo",
+        response_format: { "type": "json_object" },
         messages: [
             {
                 "role": "system",
@@ -15,8 +16,12 @@ export const generateSentence = async (words: string[]) => {
             }
         ]
     });
+    if (completion !== null) {
+        const content = completion.choices[0].message.content;
+        if (content !== null) {
+            return (JSON.parse(content).result);
+        }
+    }
 
-    console.log(completion);
-
-    return completion
+    return []
 }

@@ -93,15 +93,10 @@ const iconColorStyles = (
   }
 };
 
-const IconGood = ({
-  strokeWidth,
-  strokeColor,
-  iconColor,
-  word,
-}: IconGoodProps) => {
+const IconGood = ({ strokeWidth, strokeColor, iconColor }: IconGoodProps) => {
   const { isDesaturateColors, isDarkerColors } = useTogglesStore();
   return (
-    <Panel word="Like">
+    <Panel word="Good">
       <svg
         id="Layer_1"
         data-name="Layer 1"
