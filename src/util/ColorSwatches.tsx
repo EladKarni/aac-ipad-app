@@ -1,7 +1,10 @@
 import { colorOptions } from "@/stores/colorStore";
 import { StaticImageData } from "next/image";
-import ColorSwatch4 from "../../public/colors/Rectangle 246.png";
-import ColorSwatch5 from "../../public/colors/Rectangle 247.png";
+import ColorSwatch from "../../public/colors/Rectangle 243.png";
+import ColorSwatch2 from "../../public/colors/Rectangle 246.png";
+import ColorSwatch3 from "../../public/colors/Rectangle 247.png";
+import ColorSwatch4 from "../../public/colors/Rectangle 244.png";
+import ColorSwatch5 from "../../public/colors/Rectangle 245.png";
 import ColorSwatch6 from "../../public/colors/Rectangle 248.png";
 import ColorSwatch7 from "../../public/colors/Rectangle 249.png";
 import ColorSwatch8 from "../../public/colors/Rectangle 250.png";
@@ -23,12 +26,24 @@ type ColorSwatchObject = {
 
 export const ColorSwatches: ColorSwatchObject[] = [
   {
+    name: "none",
+    image: ColorSwatch,
+  },
+  {
     name: "white",
+    image: ColorSwatch2,
+  },
+  {
+    name: "light-gray",
     image: ColorSwatch4,
   },
   {
     name: "gray",
     image: ColorSwatch5,
+  },
+  {
+    name: "dark-gray",
+    image: ColorSwatch3,
   },
   {
     name: "black",

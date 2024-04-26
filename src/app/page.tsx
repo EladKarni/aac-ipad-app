@@ -12,6 +12,7 @@ import IconGo from "@/components/Icons/IconGo";
 import IconThis from "@/components/Icons/IconThis";
 import IconThat from "@/components/Icons/IconThat";
 import IconSpeak from "../../public/icons/IconSpeak.png";
+import IconGen from "../../public/icons/IconGen.png";
 import Image from "next/image";
 import IconNeither from "@/components/Icons/IconNeither";
 import IconAbove from "@/components/Icons/IconAbove";
@@ -125,17 +126,27 @@ export default function Home() {
         </section>
         <aside className="grid grid-cols-2 grid-rows-7 gap-10 ">
           <div className="col-span-2 flex gap-10">
-            <Panel word={""} className="bg-[#C7C7C7]" />
+            <Panel
+              word={"Generate"}
+              input={words}
+              className="text-3xl bg-[#C7C7C7] font-semibold text-black flex flex-col items-center justify-around"
+            >
+              <Image src={IconGen} alt="Generate" className="scale-150 mt-4" />
+            </Panel>
             <Panel
               word={"Speak"}
               className="text-3xl bg-[#C7C7C7] font-semibold text-black flex flex-col items-center justify-around"
             >
               <Image src={IconSpeak} alt="Speak" className="scale-150 mt-4" />
-              Speak
             </Panel>
           </div>
           <div className="col-span-2">
-            <Panel word={""} className="bg-[#C7C7C7]" />
+            <Panel
+              word={"Voice_Settings"}
+              className="bg-[#C7C7C7] text-3xl font-semibold text-black/10"
+            >
+              Voice Settings
+            </Panel>
           </div>
           <div className="col-span-2 row-span-3 flex flex-col gap-16 h-full pt-8">
             <div className="flex gap-10 grow">
@@ -152,11 +163,11 @@ export default function Home() {
                 Clear
               </Panel>
             </div>
-            <div className="flex gap-10 grow">
+            <div className="flex gap-6 grow -mb-10">
               <Panel word={""} className="bg-[#C7C7C7]" />
               <Panel word={""} className="bg-[#C7C7C7]" />
             </div>
-            <div className="flex gap-10 grow">
+            <div className="flex gap-6 grow">
               <Panel word={""} className="bg-[#C7C7C7]" />
               <Panel word={""} className="bg-[#C7C7C7]" />
             </div>

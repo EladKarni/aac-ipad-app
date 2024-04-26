@@ -1,3 +1,4 @@
+import { on } from "events";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -7,6 +8,12 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    extend: {
+      boxShadow: {
+        "card-on": `inset -2px -2px 1px rgba(255, 255, 255, 0.76), inset -2px -2px 5px rgba(255, 255, 255, 0.7), inset 1px 1px 4px rgba(0, 0, 0, 0.41), inset 4px 4px 4px 1px rgba(85, 85, 85, 0.39)`,
+        "card-off": `-4px 5px 3px rgba(255, 255, 255, 0.8), -2px -2px 2px 1px rgba(255, 255, 255, 0.8), 1px 1px 3px 1px rgba(0, 0, 0, 0.3), 3px 3px 4px 3px rgba(0, 0, 0, 0.2)`
+      }
+    }, 
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
@@ -54,6 +61,24 @@ const config: Config = {
         DEFAULT: '#6D6D6D',
         light: '#CBD5E0',
         lightest: '#EDF2F7',
+      },
+      'skintone1': {
+        DEFAULT: '#FFE7D1',
+      },
+      'skintone2': {
+        DEFAULT: '#E6BC98',
+      },
+      'skintone3': {
+        DEFAULT: '#D4AA78',
+      },
+      'skintone4': {
+        DEFAULT: '#BE794A',
+      },
+      'skintone5': {
+        DEFAULT: '#84583A',
+      },
+      'skintone6': {
+        DEFAULT: '#4C291C',
       },
     }
   },

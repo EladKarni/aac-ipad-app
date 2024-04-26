@@ -15,12 +15,17 @@ const ColorPicker = () => {
               key={color.name}
               className="relative"
               onTouchStart={() => {
-                useColorStore.setState({ currentColor: color.name });
+                useColorStore.setState({
+                  currentColor: color.name === "none" ? "white" : color.name,
+                });
                 console.log(color.name, currentColor);
               }}
             >
               <Image
-                className={`w-20 h-20 cursor-pointer`}
+                className={clsx(
+                  `w-20 h-20 cursor-pointer`,
+                  color.name === "none" && " opacity-20"
+                )}
                 src={color.image}
                 alt={"color swatch"}
               />
