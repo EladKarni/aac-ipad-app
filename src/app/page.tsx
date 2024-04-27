@@ -81,7 +81,7 @@ export default function Home() {
             )}
           </div>
 
-          <div className="row-span-6 flex flex-col justify-center gap-y-10 h-full">
+          <div className="row-span-6 flex flex-col justify-between h-full">
             <div className="flex gap-10">
               <IconGood
                 word="Like"
@@ -186,7 +186,7 @@ export default function Home() {
               Voice Settings
             </Panel>
           </div>
-          <div className="col-span-2 row-span-3 flex flex-col gap-16 h-full pt-8">
+          <div className="col-span-2 row-span-3 flex flex-col gap-16 h-[8.9rem] pt-8">
             <div className="flex gap-10 grow">
               <Panel
                 word={"Delete"}
@@ -202,14 +202,36 @@ export default function Home() {
               </Panel>
             </div>
           </div>
-          <div className="col-span-2 flex flex-col gap-10">
-            <Panel word={""} className="bg-[#C7C7C7]" />
-            <Panel word={""} className="bg-[#C7C7C7]" />
-          </div>
-          <div className="flex  col-span-2 justify-end items-end">
-            <div className="flex gap-10 h-1/2 w-full">
-              <Panel word={""} className="bg-[#C7C7C7]" />
-              <Panel word={""} className="bg-[#C7C7C7]" />
+          <div className="col-span-2 row-span-2 flex justify-end flex-col">
+            <div className="flex flex-col gap-6 h-40">
+              <Panel
+                word={""}
+                className="text-3xl bg-[#C7C7C7] font-bold text-black flex items-end justify-center h-36 p-3"
+              >
+                Random Page 78
+              </Panel>
+              <Panel
+                word={""}
+                className="text-3xl bg-[#C7C7C7] font-semibold text-black flex items-end justify-center h-36 p-3"
+              >
+                {`[-] Page Select`}{" "}
+              </Panel>
+            </div>
+            <div className="flex justify-end items-end h-32">
+              <div className="flex gap-10 h-1/2 w-full">
+                <Panel
+                  word={"Previous"}
+                  className="text-3xl bg-[#C7C7C7] font-semibold text-black flex items-end justify-center h-36 p-3"
+                >
+                  Previous
+                </Panel>
+                <Panel
+                  word={"Next"}
+                  className="text-3xl bg-[#C7C7C7] font-semibold text-black flex items-end justify-center h-36 p-3"
+                >
+                  Next
+                </Panel>
+              </div>
             </div>
           </div>
         </aside>

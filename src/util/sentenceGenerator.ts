@@ -1,6 +1,7 @@
+"use server";
 import OpenAIApi from 'openai'
 
-const OpenAIClient = new OpenAIApi({ apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY, dangerouslyAllowBrowser: true })
+const OpenAIClient = new OpenAIApi({ apiKey: process.env.OPENAI_API_KEY, dangerouslyAllowBrowser: true })
 
 export const generateSentence = async (words: string[]) => {
     const completion = await OpenAIClient.chat.completions.create({
