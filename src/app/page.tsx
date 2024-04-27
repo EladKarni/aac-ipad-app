@@ -2,40 +2,21 @@
 import { useColorStore } from "@/stores/colorStore";
 import { useTogglesStore } from "@/stores/togglesStore";
 import { useWordStore } from "@/stores/wordStore";
-import IconBad from "@/components/Icons/IconBad";
-import IconFast from "@/components/Icons/IconFast";
-import IconGood from "@/components/Icons/IconGood";
 import Panel from "@/components/Panel/Panel";
-import IconSlow from "@/components/Icons/IconSlow";
-import IconCome from "@/components/Icons/IconCome";
-import IconGo from "@/components/Icons/IconGo";
-import IconThis from "@/components/Icons/IconThis";
-import IconThat from "@/components/Icons/IconThat";
 import IconSpeak from "../../public/icons/IconSpeak.png";
 import IconGen from "../../public/icons/IconGen.png";
 import Image from "next/image";
-import IconNeither from "@/components/Icons/IconNeither";
-import IconAbove from "@/components/Icons/IconAbove";
-import IconUnder from "@/components/Icons/IconBelow";
-import IconThink from "@/components/Icons/IconThink";
 import TooltipTriangle from "../../public/tooltip-triangle.png";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import Page1 from "@/components/Pages/Page1";
+import Page2 from "@/components/Pages/Page2";
+import { usePageStore } from "@/stores/pageStore";
 
 export default function Home() {
   const { isWhiteOutline, isBoldOutline } = useTogglesStore();
   const { currentColor } = useColorStore();
-  const { words, sentenceOptions, selectedSentence } = useWordStore();
-
-  const [synth, setSynth] = useState<SpeechSynthesis | null>(null);
-  const [utterance, setUtterance] = useState<SpeechSynthesisUtterance | null>(
-    null
-  );
-
-  useEffect(() => {
-    if (!window.speechSynthesis) return;
-    setSynth(window.speechSynthesis);
-    setUtterance(new SpeechSynthesisUtterance(selectedSentence));
-  }, [selectedSentence]);
+  const { words, sentenceOptions } = useWordStore();
+  const { page } = usePageStore();
 
   return (
     <>
@@ -44,8 +25,8 @@ export default function Home() {
         className="absolute top-[45%] left-0 bg-[#EFEFEF] h-[10%] w-20 z-100"
       />
       <main className="grid grid-cols-5 h-screen p-10 ml-12 bg-white gap-14">
-        <section className="h-full grid grid-rows-7 gap-10 col-span-4">
-          <div className="flex gap-4 items-center w-full rounded-lg h-full bg-[#E2E2E2] card-shadow-off px-8 relative">
+        <section className="h-full grid grid-rows-7 col-span-4 ">
+          <div className="flex gap-4 items-center w-full rounded-lg h-40 bg-[#E2E2E2] card-shadow-off px-8 relative mt-10">
             {words.map((word) => {
               return (
                 <div
@@ -54,7 +35,7 @@ export default function Home() {
                 >{`"${word}"`}</div>
               );
             })}
-            {sentenceOptions.length !== 0 && (
+            {sentenceOptions !== undefined && sentenceOptions.length !== 0 && (
               <div className="w-full h-[1236px] bg-[#A2A2A2] absolute -ml-8 -mb-[1500px] rounded-lg flex flex-col gap-2 py-2">
                 <Image
                   src={TooltipTriangle}
@@ -65,12 +46,9 @@ export default function Home() {
                   return (
                     <div
                       onClick={() => {
-                        if (synth === null) return;
-                        if (utterance === null) return;
                         useWordStore.setState({
-                          selectedSentence: words,
+                          words: words.split(" "),
                         });
-                        synth.speak(utterance);
                       }}
                       key={words + Math.random()}
                       className="text-5xl text-black w-full bg-[#797979] grow items-center flex px-4"
@@ -81,85 +59,20 @@ export default function Home() {
             )}
           </div>
 
-          <div className="row-span-6 flex flex-col justify-between h-full">
-            <div className="flex gap-10">
-              <IconGood
-                word="Like"
-                strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
-                strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[8px]"}
-                iconColor={currentColor}
+          <div className="row-span-6 flex flex-col justify-start gap-10 h-fit mt-10">
+            {page === 1 ? (
+              <Page1
+                isBoldOutline={isBoldOutline}
+                isWhiteOutline={isWhiteOutline}
+                currentColor={currentColor}
               />
-              <IconBad
-                word="Bad"
-                strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
-                strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[8px]"}
-                iconColor={currentColor}
+            ) : (
+              <Page2
+                isBoldOutline={isBoldOutline}
+                isWhiteOutline={isWhiteOutline}
+                currentColor={currentColor}
               />
-              <IconFast
-                word="Fast"
-                strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
-                strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[8px]"}
-                iconColor={currentColor}
-              />
-              <IconSlow
-                word="Slow"
-                strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
-                strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[8px]"}
-                iconColor={currentColor}
-              />
-            </div>
-            <div className="flex gap-10">
-              <IconThis
-                word="This"
-                strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
-                strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[7px]"}
-                iconColor={currentColor}
-              />
-              <IconThat
-                word="That"
-                strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
-                strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[7px]"}
-                iconColor={currentColor}
-              />
-              <IconNeither
-                word="Neither"
-                strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
-                strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[7px]"}
-                iconColor={currentColor}
-              />
-              <IconAbove
-                word="Above"
-                strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
-                strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[7px]"}
-                iconColor={currentColor}
-              />
-            </div>
-            <div className="flex gap-10">
-              <IconCome
-                word="Come"
-                strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
-                strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[7px]"}
-                iconColor={currentColor}
-              />
-              <IconGo
-                word="Go"
-                strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
-                strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[7px]"}
-                iconColor={currentColor}
-              />
-              <IconThink
-                word="Think"
-                strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
-                strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[8px]"}
-                iconColor={currentColor}
-              />
-              <IconUnder
-                word="Under"
-                strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
-                strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[8px]"}
-                iconColor={currentColor}
-              />
-            </div>
+            )}
           </div>
         </section>
         <aside className="grid grid-cols-2 grid-rows-7 gap-10 ">
@@ -206,18 +119,18 @@ export default function Home() {
             <div className="flex flex-col gap-6 h-40">
               <Panel
                 word={""}
-                className="text-3xl bg-[#C7C7C7] font-bold text-black flex items-end justify-center h-36 p-3"
+                className="text-3xl bg-[#C7C7C7] font-bold text-black flex items-end justify-center h-36 p-3 text-black/10"
               >
                 Random Page 78
               </Panel>
               <Panel
                 word={""}
-                className="text-3xl bg-[#C7C7C7] font-semibold text-black flex items-end justify-center h-36 p-3"
+                className="text-3xl bg-[#C7C7C7] font-semibold text-black flex items-end justify-center h-36 p-3 text-black/10"
               >
                 {`[-] Page Select`}{" "}
               </Panel>
             </div>
-            <div className="flex justify-end items-end h-32">
+            <div className="flex justify-end items-end h-32 mb-16">
               <div className="flex gap-10 h-1/2 w-full">
                 <Panel
                   word={"Previous"}

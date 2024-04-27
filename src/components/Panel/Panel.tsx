@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { clsx } from "clsx";
 import { useWordStore } from "@/stores/wordStore";
 import { generateSentence } from "@/util/sentenceGenerator";
+import { usePageStore } from "@/stores/pageStore";
 
 type PanelProps = {
   word?: string;
@@ -19,6 +20,7 @@ const Panel = ({ children, className, word, input }: PanelProps) => {
     null
   );
   const { words, addWordToEnd, clearWords, removeWordFromEnd } = useWordStore();
+  const { page } = usePageStore();
 
   useEffect(() => {
     if (!window.speechSynthesis) return;
@@ -29,6 +31,18 @@ const Panel = ({ children, className, word, input }: PanelProps) => {
 
   const setPressedValue = async () => {
     if (word === "" || word === undefined) return;
+    if (word === "Previous") {
+      usePageStore.setState({
+        page: 1,
+      });
+      return;
+    }
+    if (word === "Next") {
+      usePageStore.setState({
+        page: 2,
+      });
+      return;
+    }
     if (word === "Generate") {
       console.log("Generating");
       if (input === undefined) return;
