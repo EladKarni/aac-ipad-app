@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import SettingsMenu from "@/components/SettingsMenu/SettingsMenu";
+import Image from "next/image";
 
 type DrawerProps = {
   children: ReactNode;
@@ -23,6 +24,13 @@ const Drawer = ({ children }: DrawerProps) => {
           className="drawer-overlay bg-transparent"
         ></label>
         <div className="p-4 w-[60vw] py-28 px-28 h-screen bg-[#EFEFEF] text-black shadow-[4px_3px_8px_2px_rgba(118,117,117,0.74)] relative">
+          <Image
+            className="absolute -right-2 top-1/2 -mt-6  z-100"
+            src="/icons/gear.png"
+            alt={"gear"}
+            width={50}
+            height={50}
+          />
           <SettingsMenu />
         </div>
       </div>
