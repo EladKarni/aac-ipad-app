@@ -35,8 +35,11 @@ export default function Home() {
                 >{`"${word}"`}</div>
               );
             })}
+          </div>
+
+          <div className="row-span-6 flex flex-col justify-start gap-10 h-fit mt-10">
             {sentenceOptions !== undefined && sentenceOptions.length !== 0 && (
-              <div className="w-full h-[1236px] bg-[#A2A2A2] absolute -ml-8 -mb-[1500px] rounded-lg flex flex-col gap-2 py-2">
+              <div className="w-full h-[1236px] bg-[#A2A2A2] rounded-lg flex flex-col gap-2 py-2 z-100">
                 <Image
                   src={TooltipTriangle}
                   alt={"triangle tooltip"}
@@ -57,22 +60,24 @@ export default function Home() {
                 })}
               </div>
             )}
-          </div>
-
-          <div className="row-span-6 flex flex-col justify-start gap-10 h-fit mt-10">
-            {page === 1 ? (
-              <Page1
-                isBoldOutline={isBoldOutline}
-                isWhiteOutline={isWhiteOutline}
-                currentColor={currentColor}
-              />
-            ) : (
-              <Page2
-                isBoldOutline={isBoldOutline}
-                isWhiteOutline={isWhiteOutline}
-                currentColor={currentColor}
-              />
-            )}
+            {page === 1 &&
+              sentenceOptions !== undefined &&
+              sentenceOptions.length === 0 && (
+                <Page1
+                  isBoldOutline={isBoldOutline}
+                  isWhiteOutline={isWhiteOutline}
+                  currentColor={currentColor}
+                />
+              )}
+            {page === 2 &&
+              sentenceOptions !== undefined &&
+              sentenceOptions.length === 0 && (
+                <Page2
+                  isBoldOutline={isBoldOutline}
+                  isWhiteOutline={isWhiteOutline}
+                  currentColor={currentColor}
+                />
+              )}
           </div>
         </section>
         <aside className="grid grid-cols-2 grid-rows-7 gap-10 ">
