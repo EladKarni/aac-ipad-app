@@ -7,7 +7,6 @@ import IconSpeak from "../../public/icons/IconSpeak.png";
 import IconGen from "../../public/icons/IconGen.png";
 import Image from "next/image";
 import TooltipTriangle from "../../public/tooltip-triangle.png";
-import { useEffect } from "react";
 import Page1 from "@/components/Pages/Page1";
 import Page2 from "@/components/Pages/Page2";
 import { usePageStore } from "@/stores/pageStore";
@@ -17,6 +16,11 @@ export default function Home() {
   const { currentColor } = useColorStore();
   const { words, sentenceOptions } = useWordStore();
   const { page } = usePageStore();
+
+  console.log(sentenceOptions);
+
+  const isShowingSentenceOptions = () =>
+    sentenceOptions !== undefined && sentenceOptions.length !== 0;
 
   return (
     <>
@@ -38,7 +42,7 @@ export default function Home() {
           </div>
 
           <div className="row-span-6 flex flex-col justify-start gap-10 h-fit mt-10">
-            {sentenceOptions !== undefined && sentenceOptions.length !== 0 && (
+            {isShowingSentenceOptions() && (
               <div className="w-full h-[1236px] bg-[#A2A2A2] rounded-lg flex flex-col gap-2 py-2 z-100">
                 <Image
                   src={TooltipTriangle}
@@ -60,24 +64,20 @@ export default function Home() {
                 })}
               </div>
             )}
-            {page === 1 &&
-              sentenceOptions !== undefined &&
-              sentenceOptions.length === 0 && (
+            {!isShowingSentenceOptions() &&
+              (page === 1 ? (
                 <Page1
                   isBoldOutline={isBoldOutline}
                   isWhiteOutline={isWhiteOutline}
                   currentColor={currentColor}
                 />
-              )}
-            {page === 2 &&
-              sentenceOptions !== undefined &&
-              sentenceOptions.length === 0 && (
+              ) : (
                 <Page2
                   isBoldOutline={isBoldOutline}
                   isWhiteOutline={isWhiteOutline}
                   currentColor={currentColor}
                 />
-              )}
+              ))}
           </div>
         </section>
         <aside className="grid grid-cols-2 grid-rows-7 gap-10 ">

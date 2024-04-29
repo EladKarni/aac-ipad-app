@@ -10,16 +10,26 @@ export const generateSentence = async (words: string[]) => {
         messages: [
             {
                 "role": "system",
-                "content": `Given this list of keywords: "${words.join(", ")}" construct a list of 5 short sentences that use most of the words. Respond only with a json array containing the result and no other text. \n
+                "content": `Given this list of keywords: "${words.join(", ")}" construct a list of 5 short sentences that use all of the words. Respond only with a json array containing the result and no other text. \n
                 An example of how you should process the data is here: \n
                 "Good, This, Fast, Above" \n
-                ["This is good as stated above.", "The above is good", "The above is satisfactory", "This is a good one above."]`
+                {
+                    "result": [
+                        "This is good above.",
+                        "The above is good",
+                        "The above is satisfactory",
+                        "This is a good thing above."
+                    ]
+                }`
             }
         ]
     });
     if (completion !== null) {
         const content = completion.choices[0].message.content;
         if (content !== null) {
+            console.log(content)
+            console.log(JSON.parse(content)[Object.keys(content)[0]])
+            console.log(Object.keys(content)[0])
             return (JSON.parse(content).result);
         }
     }

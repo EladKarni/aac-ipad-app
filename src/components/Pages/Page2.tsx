@@ -12,6 +12,19 @@ import IconThat from "../Icons/IconThat";
 import IconThink from "../Icons/IconThink";
 import IconThis from "../Icons/IconThis";
 import { colorOptions } from "@/stores/colorStore";
+import IconX from "../Icons/IconGet";
+import IconGet from "../Icons/IconGet";
+import IconWant from "../Icons/IconWant";
+import IconLike from "../Icons/IconLike";
+import IconCan from "../Icons/IconCan";
+import IconSelf from "../Icons/IconSelf";
+import IconIn from "../Icons/IconIn";
+import IconThe from "../Icons/IconThe";
+import IconA from "../Icons/IconA";
+import IconSmall from "../Icons/IconSmall";
+import IconBunny from "../Icons/IconBunny";
+import IconApple from "../Icons/IconApple";
+import IconPop from "../Icons/IconPop";
 
 type PageProps = {
   isWhiteOutline: boolean;
@@ -23,26 +36,26 @@ const Page2 = ({ isWhiteOutline, isBoldOutline, currentColor }: PageProps) => {
   return (
     <>
       <div className="flex gap-10">
-        <IconGood
+        <IconWant
+          word="Want"
+          strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
+          strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[8px]"}
+          iconColor={currentColor}
+        />
+        <IconGet
+          word="Get"
+          strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
+          strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[8px]"}
+          iconColor={currentColor}
+        />
+        <IconLike
           word="Like"
           strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
           strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[8px]"}
           iconColor={currentColor}
         />
-        <IconBad
-          word="Bad"
-          strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
-          strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[8px]"}
-          iconColor={currentColor}
-        />
-        <IconFast
-          word="Fast"
-          strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
-          strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[8px]"}
-          iconColor={currentColor}
-        />
-        <IconSlow
-          word="Slow"
+        <IconCan
+          word="Can"
           strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
           strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[8px]"}
           iconColor={currentColor}
@@ -50,52 +63,52 @@ const Page2 = ({ isWhiteOutline, isBoldOutline, currentColor }: PageProps) => {
       </div>
 
       <div className="flex gap-10">
-        <IconCome
-          word="Come"
+        <IconSelf
+          word="I"
           strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
           strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[7px]"}
           iconColor={currentColor}
         />
-        <IconGo
-          word="Go"
+        <IconIn
+          word="In"
           strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
           strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[7px]"}
           iconColor={currentColor}
         />
-        <IconThink
-          word="Think"
+        <IconThe
+          word="The"
           strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
           strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[8px]"}
           iconColor={currentColor}
         />
-        <IconUnder
-          word="Under"
+        <IconA
+          word="A"
           strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
           strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[8px]"}
           iconColor={currentColor}
         />
       </div>
       <div className="flex gap-10">
-        <IconThis
-          word="This"
+        <IconSmall
+          word="Small"
           strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
           strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[7px]"}
           iconColor={currentColor}
         />
-        <IconThat
-          word="That"
+        <IconBunny
+          word="Bunny"
           strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
           strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[7px]"}
           iconColor={currentColor}
         />
-        <IconNeither
-          word="Neither"
+        <IconApple
+          word="Apple"
           strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
           strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[7px]"}
           iconColor={currentColor}
         />
-        <IconAbove
-          word="Above"
+        <IconPop
+          word="Soda"
           strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
           strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[7px]"}
           iconColor={currentColor}

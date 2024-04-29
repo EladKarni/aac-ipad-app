@@ -26,7 +26,7 @@ const Page1 = ({ isWhiteOutline, isBoldOutline, currentColor }: PageProps) => {
         <IconGood
           word="Like"
           strokeColor={isWhiteOutline ? "stroke-white" : "stroke-black"}
-          strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[8px]"}
+          strokeWidth={isBoldOutline ? "stroke-[16px]" : "stroke-[7px]"}
           iconColor={currentColor}
         />
         <IconBad
